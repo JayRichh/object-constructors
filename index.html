@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Library Tracker</h1>
+    </header>
+    <main>
+      <div id="overlay" style="display: none">
+        <form id="inputForm" action="" method="get">
+          <h2>Add new book</h2>
+          <a href="" id="form-close" 
+            >X</a
+          >
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            required
+            maxlength="100"
+            id="title"
+          />
+          <input
+            type="text"
+            name="author"
+            placeholder="Author"
+            required
+            maxlength="100"
+            id="author"
+          />
+          <input
+            type="number"
+            name="pages"
+            placeholder="Pages"
+            required
+            maxlength="10000"
+            id="pages"
+          />
+          <div class="is-read">
+            <label for="is-read">Have you read it?</label>
+            <input type="checkbox" name="read" id="read" />
+          </div>
+          <input type="submit" value="Add" />
+        </form>
+      </div>
+      <button id="btn" onclick="toggleInputForm()">+ Add Book</button>
+      <div id="book-grid"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
