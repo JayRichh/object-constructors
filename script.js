@@ -18,6 +18,8 @@ const form = document.getElementById("inputForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  // Testing
+
   // Get book info from input
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
