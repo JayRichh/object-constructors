@@ -3,22 +3,21 @@
 // Create library array
 let myLibrary = [];
 
-// Book constructor
+// Start Class update for book constructor //
 class Book {
-  constructor() { // Update with ES6 constructor
+  constructor() {
     this.title = "";
     this.author = "";
     this.pages = 0;
     this.read = false;
   }
 }
+// End Class update for book constructor //
 
 // Function to get book from input, add it to library and render
 const form = document.getElementById("inputForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  // Testing
 
   // Get book info from input
   const title = document.getElementById("title").value;
@@ -27,14 +26,14 @@ form.addEventListener("submit", (e) => {
   const read = document.getElementById("read").checked;
 
   // Create new book object
-  const book = new Book();
-  book.title = title;
-  book.author = author;
-  book.pages = pages;
-  book.read = read;
+  const newBook = new Book();
+  newBook.title = title;
+  newBook.author = author;
+  newBook.pages = pages;
+  newBook.read = read;
 
   // Add book to library
-  myLibrary.push(book);
+  myLibrary.push(newBook);
 
   // Render library
   render();
@@ -49,7 +48,8 @@ function createBookCard() {
   const bookGrid = document.getElementById("book-grid");
   bookGrid.innerHTML = "";
 
-  myLibrary.forEach((book, index) => { // for each book in the library
+  myLibrary.forEach((book, index) => {
+    // for each book in the library
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
     bookCard.setAttribute("data-index", index);
@@ -123,7 +123,7 @@ function toggleReadStatus(e) {
   // e is the event object
   const index = e.target.parentElement.parentElement.getAttribute("data-index");
   // get the index of the book from the button that was clicked on (the button is the parent of the book card) and store it in the index variable
-  myLibrary[index].read = !myLibrary[index].read;
+  myLibrary[index].read = !myLibrary[index].read; //
   // toggle the read status of the book
   if (myLibrary[index].read) {
     e.target.classList.remove("not-read");
@@ -139,12 +139,8 @@ function toggleReadStatus(e) {
 // Function to delete book from library
 function deleteBook(e) {
   const index = e.target.parentElement.parentElement.getAttribute("data-index");
-  myLibrary.splice(index, 1);
+  myLibrary.splice(index, 1); // remove the book from the library array
   render();
 }
-
-// Overlay hide on form-close button
-const formCloseButton = document.getElementById("form-close");
-formCloseButton.addEventListener("click", toggleInputForm);
 
 render(); // render the library on page load
